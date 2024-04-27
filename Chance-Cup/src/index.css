@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  overflow-y: auto;
+}
+
+@font-face {
+  font-family: 'VTF Redzone Classic';
+  src: local('VTF Redzone Classic Oblique'), local('VTF-Redzone-Classic-Oblique'),
+      url('./assets/VTFRedzone-ClassicOblique.woff2') format('woff2'),
+      url('./assets/VTFRedzone-ClassicOblique.woff') format('woff'),
+      url('./assets//VTFRedzone-ClassicOblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  text-decoration: white;
+  color: inherit;
+}
