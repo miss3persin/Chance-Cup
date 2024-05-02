@@ -1,0 +1,40 @@
+.football-matches__container {
+    margin: 130px 50px 10px 50px;
+}
+
+.section-title {
+    font-family: 'VTF Redzone Classic', sans-serif;
+}
+
+.team-pair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    gap: 10px;
+}
+
+.team-pair__team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-pair__team img {
+    width: 100px;
+    height: 100px;
+}
+
+.match-list__container {
+    margin: 0;
+    padding: 0;
+}
+
+.match-list {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-family: "Teko", sans-serif;
+}

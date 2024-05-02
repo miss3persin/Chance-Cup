@@ -65,6 +65,7 @@ const NavLinks = () => {
         </div>
 
       </div>
+      <div className='creators'><p>Created by VALVE</p></div>
     </div>
   )
 }

@@ -1,25 +1,26 @@
 .fixed-bg {
-    background-image: url('../assets/football_bg.jpg');
+    /* background-image: url('../assets/football_bg.jpg'); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     color: white;
+    background: linear-gradient(to bottom right, rgb(47, 65, 162), rgb(196, 48, 140));
 }
 
 .dark-overlay {
     width: 100%;
     height: 100%;
     /* background-color: black; */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-    display: flex;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     overflow-y: auto;
 }
 
@@ -33,8 +34,10 @@
 
 
 /* lg */
-@media (max-width: 1024px) {
+@media (max-width: 1366px) {
 
-
+    .cols-divide {
+        margin-top: 50px;
+    }    
 
 }
