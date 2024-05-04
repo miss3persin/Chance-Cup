@@ -1,10 +1,16 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import '../styles/Navbar.css'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const messageBoxRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const location = useLocation();
+  const [currentPage, setCurrentPage] = useState("");
+
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location]);
 
   const handleMouseEnter = () => {
     setVisible(true);
@@ -29,9 +35,9 @@ const Navbar = () => {
         <div className='site-title'><Link to={`/`}><p>CHANCE CUP - 2024</p></Link></div>
         <div className='other-links'>
             <ul>
-            <Link to={`/football`}><li>Football</li></Link>
-            <Link to={`/basketball`}><li>Basketball</li></Link>
-            <Link to={`/volleyball`}><li>Volleyball</li></Link>
+            <Link to={`/football`}><li className={`${currentPage === "/football" ? "added-color" : ""}`}>Football</li></Link>
+            <Link to={`/basketball`}><li className={`${currentPage === "/basketball" ? "added-color" : ""}`}>Basketball</li></Link>
+            <Link to={`/volleyball`}><li className={`${currentPage === "/volleyball" ? "added-color" : ""}`}>Volleyball</li></Link>
                 <li className='fcc-navbar' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>FCC
                 <div className={`nav-message-box ${visible ? 'new-visible' : ''}`} ref={messageBoxRef}>
           COMING SOON...

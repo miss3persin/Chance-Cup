@@ -1,6 +1,7 @@
 nav {
-    width: 100vw;
-    padding: 10px 0px 10px 50px;
+    /* width: 00vw; */
+    padding: 0px 0px 10px 50px;
+    margin-top: 0;
     position: fixed;
     z-index: 1;
     
@@ -15,6 +16,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 0;
     padding: 0 50px 0 20px;
     border: 1px solid #41FAB8;
     background: linear-gradient(to bottom right, #B1328D, #382E84);
@@ -26,7 +28,7 @@ nav {
     background: linear-gradient(to bottom right, #B1328D, #382E84);
     /* background: linear-gradient(to bottom right, #B1328D, #B1328D, #382E84, #382E84); */
     text-shadow: 0 0 20px #41FAB8;
-    box-shadow: 0 0 10px #41FAB8;
+    /* box-shadow: 0 0 10px #41FAB8; */
     animation: gradient-animation 1s ease-in-out infinite;
 }
 
@@ -68,6 +70,10 @@ nav {
   .nav-message-box.new-visible {
     opacity: 1;
     visibility: visible;
+  }
+
+  .added-color {
+    color: #41FAB8;
   }
   
   /* Arrow styling */

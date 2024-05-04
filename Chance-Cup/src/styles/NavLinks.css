@@ -54,7 +54,7 @@
 .link-divs:hover {
     transform: scale(1.2);
     background: linear-gradient(to bottom right, #B1328D, #382E84);
-    border: 1px solid #41FAB8;
+    border: 2px solid #41FAB8;
   }
   
   .link-divs:hover p {
