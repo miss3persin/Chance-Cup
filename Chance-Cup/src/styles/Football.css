@@ -1,3 +1,27 @@
 .body-padding {
     overflow-x: hidden;
 }
+
+.colored-bg {
+    /* background-image: url('../assets/football_bg.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    color: white;
+    /* background: linear-gradient(to bottom right, rgb(47, 65, 162), rgb(196, 48, 140)); */
+    background: white;
+    color: black;
+}
+
+.some-overlay {
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); */
+    background-color: none;
+    overflow-y: auto;
+}

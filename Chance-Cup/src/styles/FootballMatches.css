@@ -4,14 +4,69 @@
 
 .section-title {
     font-family: 'VTF Redzone Classic', sans-serif;
+    font-size: 42px;
+    position: relative;
+    -webkit-text-shadow: 0 0 0 16px rgba(255, 255, 255, 0.9),
+    0 0 0 16px var(--glow-color);
+  -moz-text-shadow: 0 0 16px rgba(255, 255, 255, 0.9),
+    0 0 0 16px var(--glow-color);
+  text-shadow: 0 0 0 16px rgba(255, 255, 255, 0.9), 0 0 0 16px var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.section-title p {
+    position: absolute;
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+    margin: 0;
+}
+
+.section-title p:nth-child(odd) { --glitch-translate: 8px; }
+.section-title p:nth-child(even) { --glitch-translate: -8px; }
+
+.team-pair__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    position: relative;
+    padding: 15px 30px;
 }
 
 .team-pair {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid white;
-    gap: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0;
+   padding: 0;
+   gap: 20px;
+}
+
+.team-pair__container::before,
+.team-pair__container::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.team-pair__container::before {
+  left: -11px;
+  border-top: 195px solid white;
+  border-bottom: 0;
+}
+
+.team-pair__container::after {
+  right: -11px;
+  border-top: 0;
+  border-bottom: 195px solid white;
 }
 
 .team-pair__team {
@@ -22,19 +77,192 @@
 }
 
 .team-pair__team img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 .match-list__container {
     margin: 0;
     padding: 0;
+    gap: 70px;
+    display: flex;
+    flex-direction: column;
 }
 
 .match-list {
     display: flex;
-    gap: 10px;
+    gap: 50px;
     align-items: center;
     justify-content: center;
     font-family: "Teko", sans-serif;
+}
+
+.match-scores {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.match-time p {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.selected-match__stats {
+    font-family: "Teko", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.selected-match__stats table {
+    width: 70%;
+}
+
+.selected-match__scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 0;
+    font-size: 80px;
+}
+
+.selected-match__scores p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.selected-match__team-pair {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.team-pair__team-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+.team-pair__team-scores p {
+    margin: 0;
+    padding: 0;
+}
+
+.team-pair__team-scores img {
+    width: 100px;
+    height: 100px;
+}
+
+.goal-scorers p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+.goal-scorers {
+    padding-bottom: 50px;
+}
+
+
+.shots p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.shots-on-target p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.passes p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.fouls p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.yellows p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0; 
+    font-size: 20px;
+}
+
+.reds p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.offsides p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+.corners p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.goal-scorers__row td {
+    padding: 0;
+    margin: 0;
 }

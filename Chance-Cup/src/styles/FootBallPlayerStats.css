@@ -1,0 +1,69 @@
+.player-stats__container {
+    margin: 100px 50px 10px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.actual-player-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "Teko", sans-serif;
+    font-size: 28px;
+}
+
+.goal-list__title, .assist-list__title {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.goal-list__container, .assist-list__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #41FAB8;
+    padding: 0 10px;
+}
+
+.goal-list__container table, .assist-list__container table{
+    width: 100%;
+}
+
+.goal-list__container table, .assist-list__container table{
+    width: 100%;
+}
+
+.goal-list__container table td, .assist-list__container table td{
+    width: 100px;
+    text-align: center;
+}
+
+.goal-list__table, .assist-list__table {
+    max-height: 300px;
+    width: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.goal-list__table::-webkit-scrollbar, .assist-list__table::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  .goal-list__table::-webkit-scrollbar-track, .assist-list__table::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the track */
+    border-radius: 6px; /* Rounded corners of the track */
+  }
+  
+  .goal-list__table::-webkit-scrollbar-thumb, .assist-list__table::-webkit-scrollbar-thumb {
+    background: rgb(34, 30, 68); /* Color of the thumb (scrollbar handle) */
+    border-radius: 6px; /* Rounded corners of the thumb */
+  }
+
+  .goal-list__table::-webkit-scrollbar-thumb:hover, .assist-list__table::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 30, 68, 0.5); /* Color of the thumb on hover */
+  }

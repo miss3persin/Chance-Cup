@@ -1,0 +1,42 @@
+.football-standings__container {
+    margin: 100px 50px 10px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.groupings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Teko", sans-serif;
+}
+
+.group-number {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.groupings-container table {
+    width: 70%;
+    background: linear-gradient(to bottom right, rgb(109, 44, 90), rgb(34, 30, 68));
+    border: 1px solid white;
+    font-size: 28px;
+}
+
+.groupings-container td:not(:last-child) {
+    border-right: 1px solid white;
+}
+
+.groupings-container td {
+    border-bottom: 1px solid white;
+}
+.exception-styling td {
+    border-bottom: none;
+}
+
+.table-header {
+    font-weight: 600;
+}
