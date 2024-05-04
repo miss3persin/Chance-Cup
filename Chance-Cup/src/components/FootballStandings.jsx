@@ -28,7 +28,7 @@ const FootballStandings = () => {
         </tr>
 
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>1st</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -40,7 +40,7 @@ const FootballStandings = () => {
             <td>-</td>
             </tr>
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>2nd</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -53,7 +53,7 @@ const FootballStandings = () => {
             </tr>
 
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>3rd</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -66,7 +66,7 @@ const FootballStandings = () => {
             </tr>
         <tr className='exception-styling'>
 
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>4th</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -98,7 +98,7 @@ const FootballStandings = () => {
         </tr>
 
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>1st</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -110,7 +110,7 @@ const FootballStandings = () => {
             <td>-</td>
             </tr>
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>2nd</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -123,7 +123,7 @@ const FootballStandings = () => {
             </tr>
 
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>3rd</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -136,7 +136,7 @@ const FootballStandings = () => {
             </tr>
         <tr className='exception-styling'>
 
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>4th</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -168,7 +168,7 @@ const FootballStandings = () => {
         </tr>
 
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>1st</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -180,7 +180,7 @@ const FootballStandings = () => {
             <td>-</td>
             </tr>
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>2nd</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -193,7 +193,7 @@ const FootballStandings = () => {
             </tr>
 
         <tr>
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>3rd</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>
@@ -206,7 +206,7 @@ const FootballStandings = () => {
             </tr>
         <tr className='exception-styling'>
 
-            <td><div className='pos-div'>-</div></td>
+            <td><div className='pos-div'>4th</div></td>
             <td>Comp Sci.</td>
             <td>-</td>
             <td>-</td>

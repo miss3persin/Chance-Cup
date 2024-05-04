@@ -13,7 +13,10 @@
 .dark-overlay__basketball h1 {
     font-size: 64px;
     font-family: "Teko", sans-serif;
-    color: linear-gradient(to bottom right, rgb(109, 44, 90), rgb(34, 30, 68));
+    /* background: linear-gradient(to bottom right, rgb(109, 44, 90), rgb(34, 30, 68));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
     text-shadow: 0 0 20px #41FAB8;
-    margin-top: 250px;
+    margin-top: 270px;
 }

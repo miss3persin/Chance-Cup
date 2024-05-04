@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx';
 import Football from './pages/Football.jsx';
 import Basketball from './pages/Basketball.jsx';
 import Volleyball from './pages/Volleyball.jsx'
+import AdminSection from './pages/AdminSection.jsx';
 import App from './App.jsx'
 import './index.css'
 
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
       <Route path='/football' element={<Football/>}/>
       <Route path='/basketball' element={<Basketball/>}/>
       <Route path='/volleyball' element={<Volleyball/>}/>
+      <Route path='/web/view/for/admin' element={<AdminSection/>}/>
     </Route>
   )
 );
