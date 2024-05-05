@@ -1,6 +1,6 @@
 nav {
     /* width: 00vw; */
-    padding: 0px 0px 10px 50px;
+    padding: 0px 0px 10px 40px;
     margin-top: 0;
     position: fixed;
     z-index: 1;
@@ -8,7 +8,7 @@ nav {
 }
 
 .navbar-main__container {
-    width: 86.21%;
+    width: 87.31%;
     position: fixed;
 }
 

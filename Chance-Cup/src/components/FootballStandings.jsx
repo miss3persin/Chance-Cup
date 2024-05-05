@@ -5,11 +5,11 @@ const FootballStandings = () => {
   return (
     <div className='football-standings__container'>
 
-         <div style={{'--stacks': 3}} className='section-title'>
-            <p style={{'--index': 0}}>STANDINGS</p>
-            <p style={{'--index': 1}}>STANDINGS</p>
-            <p style={{'--index': 2}}>STANDINGS</p>
-            </div>
+<div style={{ '--stacks': 3 }} className='section-title'>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <p style={{ '--index': index }} key={index}>STANDINGS</p>
+          ))}
+        </div>
 
          <div className='groupings-container'>
             <p className='group-number'>GROUP 1</p>

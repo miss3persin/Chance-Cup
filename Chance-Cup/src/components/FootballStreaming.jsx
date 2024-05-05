@@ -56,11 +56,11 @@ const FootballStreaming = () => {
     
   return (
     <div className="video-section__container">
-                <div style={{'--stacks': 3}} className='section-title'>
-            <p style={{'--index': 0}}>MATCH STREAMING</p>
-            <p style={{'--index': 1}}>MATCH STREAMIN</p>
-            <p style={{'--index': 2}}>MATCH STREAMIN</p>
-            </div>
+<div style={{ '--stacks': 3 }} className='section-title'>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <p style={{ '--index': index }} key={index}>MATCH STREAMING</p>
+          ))}
+        </div>
 
   <div className="actual-video-section">
     <div className="video-section">

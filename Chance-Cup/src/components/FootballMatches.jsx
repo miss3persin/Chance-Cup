@@ -14,11 +14,10 @@ const FootballMatches = () => {
   };
 
   const matches = [
-    { id: 1, team1: team_1, team2: team_2, score: '6 : 0', date: '04 MAY 2024' },
-    { id: 2, team1: team_1, team2: team_2, score: '10 : 10', date: '04 MAY 2024' },
-    { id: 3, team1: team_1, team2: team_2, score: '0 : 1', date: '04 MAY 2024' },
-    // { id: 4, team1: team_1, team2: team_2, score: '2 : 1', date: '04 MAY 2024' },
-    // Add more matches as needed
+    { id: 1, team1: "Comp Sci.", team2: "EIE", score: '6 : 0', date: '04 MAY 2024' },
+    { id: 2, team1: "Civil", team2: "CAS", score: '10 : 10', date: '04 MAY 2024' },
+    { id: 3, team1: "Civil", team2: "Comp Sci.", score: '0 : 1', date: '04 MAY 2024' },
+    { id: 4, team1: "CAS", team2: "EIE", score: '2 : 1', date: '04 MAY 2024' },
   ];
 
   const selectedMatch = matches.find((match) => match.id === selectedMatchId);
@@ -36,25 +35,25 @@ const FootballMatches = () => {
   return (
     <div className='football-matches__container'>
         <div className='match-list__container'>
-            <div style={{'--stacks': 3}} className='section-title'>
-            <p style={{'--index': 0}}>MATCH SCHEDULE</p>
-            <p style={{'--index': 1}}>MATCH SCHEDULE</p>
-            <p style={{'--index': 2}}>MATCH SCHEDULE</p>
-            </div>
+        <div style={{ '--stacks': 3 }} className='section-title'>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <p style={{ '--index': index }} key={index}>MATCH SCHEDULE</p>
+          ))}
+        </div>
 
 
             <Slider {...settings} className='match-list'>
             {matches.map((match) => (
-            <div key={match.id} className='team-pair__container' onClick={() => handleMatchClick(match.id)}>
+            <div key={match.id} className={`team-pair__container ${selectedMatch === match ? 'selected-one' : ''}`} onClick={() => handleMatchClick(match.id)}>
               <div className='team-pair'>
                 <div className='team-pair__team'>
-                  <img src={match.team1} alt="team 1" />
-                  <p>TEAM 1</p>
+                  <img src={team_1} alt="team 1" />
+                  <p>{match.team1}</p>
                 </div>
                 <p className='match-scores'>{match.score}</p>
                 <div className='team-pair__team'>
-                  <img src={match.team2} alt="team 2" />
-                  <p>TEAM 2</p>
+                  <img src={team_2} alt="team 2" />
+                  <p>{match.team2}</p>
                 </div>
               </div>
               <div className='match-time'><p>{match.date}</p></div>
@@ -117,7 +116,7 @@ const FootballMatches = () => {
               <td>
                 <div className='team-pair__team-scores'>
                 <img src={team_1} alt="team 1" />
-                <p>TEAM 1</p>
+                <p>{selectedMatch.team1}</p>
               </div>
               </td>
 
@@ -130,7 +129,7 @@ const FootballMatches = () => {
               <td>
               <div className='team-pair__team-scores'>
                 <img src={team_2} alt="team 2" />
-                <p>TEAM 2</p>
+                <p>{selectedMatch.team2}</p>
               </div>
               </td>
             </tr>

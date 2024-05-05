@@ -4,11 +4,11 @@ import '../styles/FootballTeams.css'
 const FootballTeams = () => {
   return (
     <div className='football-teams__container'>
-            <div style={{'--stacks': 3}} className='section-title'>
-            <p style={{'--index': 0}}>TEAMS</p>
-            <p style={{'--index': 1}}>TEAMS</p>
-            <p style={{'--index': 2}}>TEAMS</p>
-            </div>
+<div style={{ '--stacks': 3 }} className='section-title'>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <p style={{ '--index': index }} key={index}>TEAMS</p>
+          ))}
+        </div>
 
 
 
