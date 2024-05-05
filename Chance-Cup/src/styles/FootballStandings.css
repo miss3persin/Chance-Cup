@@ -32,6 +32,7 @@
 
 .groupings-container td {
     border-bottom: 1px solid white;
+    padding-left: 10px;
 }
 .exception-styling td {
     border-bottom: none;

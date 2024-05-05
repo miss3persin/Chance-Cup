@@ -1,9 +1,38 @@
-// import React from 'react'
+import { useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import '../styles/FootballMatches.css'
 import team_1 from '../assets/team_1.png'
 import team_2 from '../assets/team_2.png'
 
 const FootballMatches = () => {
+  const [selectedMatchId, setSelectedMatchId] = useState(null);
+
+  const handleMatchClick = (matchId) => {
+    setSelectedMatchId((prevMatchId) => (prevMatchId === matchId ? null : matchId));
+  };
+
+  const matches = [
+    { id: 1, team1: team_1, team2: team_2, score: '6 : 0', date: '04 MAY 2024' },
+    { id: 2, team1: team_1, team2: team_2, score: '10 : 10', date: '04 MAY 2024' },
+    { id: 3, team1: team_1, team2: team_2, score: '0 : 1', date: '04 MAY 2024' },
+    // { id: 4, team1: team_1, team2: team_2, score: '2 : 1', date: '04 MAY 2024' },
+    // Add more matches as needed
+  ];
+
+  const selectedMatch = matches.find((match) => match.id === selectedMatchId);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    centerMode: true, 
+    centerPadding: '50px',
+  };
+
   return (
     <div className='football-matches__container'>
         <div className='match-list__container'>
@@ -13,9 +42,26 @@ const FootballMatches = () => {
             <p style={{'--index': 2}}>MATCH SCHEDULE</p>
             </div>
 
-            <div className='match-list'>
-                
-                <div className='team-pair__container'>
+
+            <Slider {...settings} className='match-list'>
+            {matches.map((match) => (
+            <div key={match.id} className='team-pair__container' onClick={() => handleMatchClick(match.id)}>
+              <div className='team-pair'>
+                <div className='team-pair__team'>
+                  <img src={match.team1} alt="team 1" />
+                  <p>TEAM 1</p>
+                </div>
+                <p className='match-scores'>{match.score}</p>
+                <div className='team-pair__team'>
+                  <img src={match.team2} alt="team 2" />
+                  <p>TEAM 2</p>
+                </div>
+              </div>
+              <div className='match-time'><p>{match.date}</p></div>
+            </div>
+          ))}
+
+                {/* <div className='team-pair__container'>
                   <div className='team-pair'>
                   <div className='team-pair__team'>
                     <img src={team_1} alt="team 1" />
@@ -58,12 +104,13 @@ const FootballMatches = () => {
                   </div>
                   </div>
                   <div className='match-time'><p>04 MAY 2024</p></div>
-                </div>
+                </div> */}
 
 
-            </div>
+          </Slider>
         </div>
-
+          
+        {selectedMatch && (
         <div className='selected-match__stats'>
           <table>
             <tr>
@@ -76,7 +123,7 @@ const FootballMatches = () => {
 
               <td>
                 <div className='selected-match__scores'><p>
-                6 : 0
+                {selectedMatch.score}
               </p></div>
               </td>
 
@@ -143,7 +190,7 @@ const FootballMatches = () => {
             </tr>
           </table>
         </div>
-
+            )}
         
     </div>
   )

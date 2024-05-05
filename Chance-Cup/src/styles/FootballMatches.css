@@ -34,7 +34,15 @@
     justify-content: center;
     border: 2px solid white;
     position: relative;
-    padding: 15px 30px;
+    padding: 15px 0px;
+    margin: 0px;
+    cursor: pointer;
+    flex: 1;
+    min-width: 0;
+}
+
+.team-pair__container p {
+    text-align: center;
 }
 
 .team-pair {
@@ -92,10 +100,38 @@
 .match-list {
     display: flex;
     gap: 50px;
+    padding: 0 10px;
     align-items: center;
     justify-content: center;
     font-family: "Teko", sans-serif;
+    max-width: 95%;
+    margin: 0 auto;
 }
+
+.match-list .slick-slide {
+    margin: 0px 20px;
+    /* flex: 1 0 auto; */
+  }
+
+  .slick-list {
+    max-height: 210px;
+  }
+
+  /* Assuming these are the classes for the carousel navigation buttons */
+.slick-prev,
+.slick-next {
+  top: 50%; /* Adjust the vertical position */
+  transform: translateY(-50%); /* Center vertically */
+}
+
+/* Additional styles to adjust their size, color, etc. */
+.slick-prev,
+.slick-next {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: transparent; /* Adjust the color as needed */
+}
+
+  
 
 .match-scores {
     font-size: 50px;
