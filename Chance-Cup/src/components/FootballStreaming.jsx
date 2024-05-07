@@ -20,9 +20,9 @@ const FootballStreaming = () => {
             },
         };
         
-        // const onReady = () => {
-        //       setIsLoading(false);
-        //     };
+        const onReady = () => {
+              setIsLoading(false);
+            };
 
             const FOOTBALL_API_KEY = import.meta.env.VITE_FOOTBALL_API_KEY;
             const CHANNEL_ID = import.meta.env.VITE_CHANNEL_ID;
@@ -66,8 +66,8 @@ const FootballStreaming = () => {
     <div className="video-section">
         {isLoading && <div className="loader"></div>}
         {error ? (
-            // <YouTube videoId={'Sm3VK1Lyi9c'} opts={videoOptions} onReady={onReady} />
-            <p className='error-text'>No match currently being streamed, check back later.</p>
+            <YouTube videoId={'Sm3VK1Lyi9c'} opts={videoOptions} onReady={onReady} />
+            // <p className='error-text'>No match currently being streamed, check back later.</p>
             // <p className='error-text'>COMING SOON</p>
           ) : ( liveStreamId ? (
               <YouTube videoId={liveStreamId} opts={videoOptions} />

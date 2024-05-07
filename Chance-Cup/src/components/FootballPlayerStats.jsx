@@ -40,6 +40,36 @@ const FootballPlayerStats = () => {
                     <td>COMP SCI.</td>
                     <td>2</td>
                 </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>COMP SCI.</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>COMP SCI.</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>COMP SCI.</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>COMP SCI.</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>COMP SCI.</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>COMP SCI.</td>
+                    <td>2</td>
+                </tr>
 
             </table>
             </div>
