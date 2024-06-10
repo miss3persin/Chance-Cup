@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-evenly;
     font-family: "Teko", sans-serif;
-    font-size: 28px;
+    font-size: 20px;
 }
 
 .goal-list__title, .assist-list__title {
@@ -30,12 +30,9 @@
 }
 
 .goal-list__container table, .assist-list__container table{
-    width: 100%;
+    width: 95%;
 }
 
-.goal-list__container table, .assist-list__container table{
-    width: 100%;
-}
 
 .goal-list__container table td, .assist-list__container table td{
     width: 100px;
@@ -69,3 +66,52 @@
   .goal-list__table::-webkit-scrollbar-thumb:hover, .assist-list__table::-webkit-scrollbar-thumb:hover {
     background: rgba(34, 30, 68, 0.5); /* Color of the thumb on hover */
   }
+
+
+  /* 2xl */
+@media (max-width: 1536px) {}
+
+/* xl */
+@media (max-width: 1280px) {}
+
+/* lg */
+@media (max-width: 1024px) {
+    .goal-list__container table, .assist-list__container table{
+        width: 100%;
+    }
+
+    .goal-list__container, .assist-list__container {
+        width: 45%;
+    }
+
+    .goal-list__table, .assist-list__table {
+        width: 500px;
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .goal-list__container table, .assist-list__container table{
+        width: 100%;
+    }
+
+    .goal-list__container, .assist-list__container {
+        width: 85%;
+    }
+
+    .goal-list__table, .assist-list__table {
+        width: 550px;
+    }
+
+    .actual-player-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* sm */
+@media (max-width: 640px) {}
+
+/* xs */
+@media (max-width: 320px) {}

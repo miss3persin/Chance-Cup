@@ -38,6 +38,10 @@
     border-bottom: none;
 }
 
+.another-styling tr:last-child td{
+    border-bottom: none;
+}
+
 .table-header {
     font-weight: 600;
 }

@@ -40,7 +40,7 @@ const FootballStreaming = () => {
                     setLiveStreamId(liveStreamId);
                     setIsLoading(false);
                 } else {
-                    setError('No match currently being streamed. Check again later');
+                    // setError('No match currently being streamed. Check again later');
                     setIsLoading(false);
                 }
                 } catch (error) {
@@ -66,7 +66,7 @@ const FootballStreaming = () => {
     <div className="video-section">
         {isLoading && <div className="loader"></div>}
         {error ? (
-            <YouTube videoId={'Sm3VK1Lyi9c'} opts={videoOptions} onReady={onReady} />
+            <YouTube videoId={'tHL5STNJKag'} opts={videoOptions} onReady={onReady} />
             // <p className='error-text'>No match currently being streamed, check back later.</p>
             // <p className='error-text'>COMING SOON</p>
           ) : ( liveStreamId ? (

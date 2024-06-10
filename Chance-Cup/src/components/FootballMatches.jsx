@@ -1,26 +1,73 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/FootballMatches.css'
 import team_1 from '../assets/team_1.png'
 import team_2 from '../assets/team_2.png'
+import axios from 'axios';
 
 const FootballMatches = () => {
   const [selectedMatchId, setSelectedMatchId] = useState(null);
+  const [matches, setMatches] = useState([]);
+  // const [matchDetails, setMatchDetails] = useState({});
 
   const handleMatchClick = (matchId) => {
     setSelectedMatchId((prevMatchId) => (prevMatchId === matchId ? null : matchId));
   };
 
-  const matches = [
-    { id: 1, team1: "Comp Sci.", team2: "EIE", score: '6 : 0', date: '04 MAY 2024' },
-    { id: 2, team1: "Civil", team2: "CAS", score: '10 : 10', date: '04 MAY 2024' },
-    { id: 3, team1: "Civil", team2: "Comp Sci.", score: '0 : 1', date: '04 MAY 2024' },
-    { id: 4, team1: "CAS", team2: "EIE", score: '2 : 1', date: '04 MAY 2024' },
-  ];
 
-  const selectedMatch = matches.find((match) => match.id === selectedMatchId);
+    const API_URL = import.meta.env.VITE_CHANCE_CUP_API_URL;
+
+    const fetchMatches = async () => {
+      try {
+        const response = await axios.get(API_URL + '/match/list');
+        if (Array.isArray(response.data.data)) {
+          const matchList = response.data.data;
+          const matchDetailPromises = matchList.map((match) =>
+            axios.get(`${API_URL}/match/detail/${match.id}`)
+          );
+          const matchDetailResponses = await Promise.all(matchDetailPromises);
+          const matchDetailsData = matchDetailResponses.map(response => response.data.data);
+  
+          const detailedMatches = matchList.map((match, index) => ({
+            ...match,
+            details: matchDetailsData[index],
+          }));
+  
+          setMatches(detailedMatches);
+        } else {
+          console.error('Invalid API Response:', response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching matches:', error);
+      }
+    };
+
+    // const fetchMatches = async () => {
+    //   try {
+    //     const response = await axios.get(API_URL + '/match/list');
+    //     if (Array.isArray(response.data.data)) {
+    //       console.log("API Response:", response.data.data);
+    //       setMatches(response.data.data);
+    //     } else {
+    //       console.error('Invalid API Response:', response.data);
+    //     }
+    //   } catch (error) {
+    //     console.error('Error fetching services:', error);
+    //   }
+    // };
+    
+
+    useEffect(() => {
+      fetchMatches();
+      // fetchMatchDetails;
+    });
+
+  // const selectedMatch = matches.find((match) => match.id === selectedMatchId);
+  // const selectedMatch = matchDetails[selectedMatchId];
+
+  const selectedMatch = matches.find((match) => match.id === selectedMatchId)?.details;
 
   const settings = {
     dots: false,
@@ -40,73 +87,24 @@ const FootballMatches = () => {
             <p style={{ '--index': index }} key={index}>MATCH SCHEDULE</p>
           ))}
         </div>
-
-
             <Slider {...settings} className='match-list'>
             {matches.map((match) => (
             <div key={match.id} className={`team-pair__container ${selectedMatch === match ? 'selected-one' : ''}`} onClick={() => handleMatchClick(match.id)}>
               <div className='team-pair'>
                 <div className='team-pair__team'>
                   <img src={team_1} alt="team 1" />
-                  <p>{match.team1}</p>
+                  <p>{match.home}</p>
                 </div>
-                <p className='match-scores'>{match.score}</p>
+                <p className='match-scores'>{`${match.home_score} : ${match.away_score}`}</p>
                 <div className='team-pair__team'>
                   <img src={team_2} alt="team 2" />
-                  <p>{match.team2}</p>
+                  <p>{match.away}</p>
                 </div>
               </div>
               <div className='match-time'><p>{match.date}</p></div>
             </div>
           ))}
-
-                {/* <div className='team-pair__container'>
-                  <div className='team-pair'>
-                  <div className='team-pair__team'>
-                    <img src={team_1} alt="team 1" />
-                    <p>TEAM 1</p>
-                  </div>
-                  <p className='match-scores'>6 : 0</p>
-                  <div className='team-pair__team'>
-                    <img src={team_2} alt="team 2" />
-                    <p>TEAM 2</p>
-                  </div>
-                  </div>
-                  <div className='match-time'><p>04 MAY 2024</p></div>
-                </div>
-
-                <div className='team-pair__container'>
-                  <div className='team-pair'>
-                  <div className='team-pair__team'>
-                    <img src={team_1} alt="team 1" />
-                    <p>TEAM 1</p>
-                  </div>
-                  <p className='match-scores'>10 : 10</p>
-                  <div className='team-pair__team'>
-                    <img src={team_2} alt="team 2" />
-                    <p>TEAM 2</p>
-                  </div>
-                  </div>
-                  <div className='match-time'><p>04 MAY 2024</p></div>
-                </div>
-
-                <div className='team-pair__container'>
-                  <div className='team-pair'>
-                  <div className='team-pair__team'>
-                    <img src={team_1} alt="team 1" />
-                    <p>TEAM 1</p>
-                  </div>
-                  <p className='match-scores'>0 : 1</p>
-                  <div className='team-pair__team'>
-                    <img src={team_2} alt="team 2" />
-                    <p>TEAM 2</p>
-                  </div>
-                  </div>
-                  <div className='match-time'><p>04 MAY 2024</p></div>
-                </div> */}
-
-
-          </Slider>
+         </Slider>
         </div>
           
         {selectedMatch && (
@@ -116,76 +114,96 @@ const FootballMatches = () => {
               <td>
                 <div className='team-pair__team-scores'>
                 <img src={team_1} alt="team 1" />
-                <p>{selectedMatch.team1}</p>
+                <p>{selectedMatch.home}</p>
               </div>
               </td>
 
               <td>
                 <div className='selected-match__scores'><p>
-                {selectedMatch.score}
+                {`${selectedMatch.home_score}  :  ${selectedMatch.away_score}`}
               </p></div>
               </td>
 
               <td>
               <div className='team-pair__team-scores'>
                 <img src={team_2} alt="team 2" />
-                <p>{selectedMatch.team2}</p>
+                <p>{selectedMatch.away}</p>
               </div>
               </td>
             </tr>
 
-            <tr className='goal-scorers__row'>
+            {/* <tr className='goal-scorers__row'>
               <td><div className='goal-scorers'><p>mosi 14&apos; 36&apos; (2)</p><p>samuel 2&apos; 63&apos; (2)</p><p>clinton 17&apos; (1)</p><p>moses 18&apos; (1)</p></div></td>
               <td><div className='goal-scorers'><p></p></div></td>
               <td><div className='goal-scorers'><p>-</p></div></td>
+            </tr> */}
+
+            <tr className='goal-scorers__row'>
+              <td>
+                <div className='goal-scorers'>
+                  {selectedMatch.home_goal_scorers.length > 0 ? selectedMatch.home_goal_scorers.map((scorer, index) => (
+                    <p key={index}>{scorer.name}</p>
+                  )) : <p>-</p>}
+                </div>
+              </td>
+              <td>
+                <div className='goal-scorers'><p></p></div>
+              </td>
+              <td>
+                <div className='goal-scorers'>
+                  {selectedMatch.away_goal_scorers.length > 0 ? selectedMatch.away_goal_scorers.map((scorer, index) => (
+                    <p key={index}>{scorer.name}</p>
+                  )) : <p>-</p>}
+                </div>
+              </td>
             </tr>
 
             <tr>
-              <td><div className='shots'><p>16</p></div></td>
+              <td><div className='shots'><p>{selectedMatch.home_shots || '-'}</p></div></td>
               <td><div className='shots'><p>SHOTS</p></div></td>
-              <td><div className='shots'><p>16</p></div></td>
+              <td><div className='shots'><p>{selectedMatch.away_shots || '-'}</p></div></td>
             </tr>
 
             <tr>
-              <td><div className='shots-on-target'><p>16</p></div></td>
+              <td><div className='shots-on-target'><p>{selectedMatch.home_shots_on_target || '-'}</p></div></td>
               <td><div className='shots-on-target'><p>SHOTS ON TARGET</p></div></td>
-              <td><div className='shots-on-target'><p>16</p></div></td>
+              <td><div className='shots-on-target'><p>{selectedMatch.away_shots_on_target || '-'}</p></div></td>
             </tr>
 
             <tr>
-              <td><div className='passes'><p>16</p></div></td>
+              <td><div className='passes'><p>{selectedMatch.home_passes || '-'}</p></div></td>
               <td><div className='passes'><p>PASSES</p></div></td>
-              <td><div className='passes'><p>16</p></div></td>
+              <td><div className='passes'><p>{selectedMatch.away_passes || '-'}</p></div></td>
             </tr>
 
             <tr>
-              <td><div className='fouls'><p>16</p></div></td>
+              <td><div className='fouls'><p>{selectedMatch.home_fouls || '-'}</p></div></td>
               <td><div className='fouls'><p>FOULS</p></div></td>
-              <td><div className='fouls'><p>16</p></div></td>
+              <td><div className='fouls'><p>{selectedMatch.away_fouls || '-'}</p></div></td>
             </tr>
 
             <tr>
-              <td><div className='yellows'><p>16</p></div></td>
+              <td><div className='yellows'><p>{selectedMatch.home_yellow_cards || '-'}</p></div></td>
               <td><div className='yellows'><p>YELLOW CARDS</p></div></td>
-              <td><div className='yellows'><p>16</p></div></td>
+              <td><div className='yellows'><p>{selectedMatch.away_yellow_cards || '-'}</p></div></td>
             </tr>
 
             <tr>
-              <td><div className='reds'><p>16</p></div></td>
+              <td><div className='reds'><p>{selectedMatch.home_red_cards || '-'}</p></div></td>
               <td><div className='reds'><p>RED CARDS</p></div></td>
-              <td><div className='reds'><p>16</p></div></td>
+              <td><div className='reds'><p>{selectedMatch.away_red_cards || '-'}</p></div></td>
             </tr>
 
             <tr>
-              <td><div className='offsides'><p>16</p></div></td>
+              <td><div className='offsides'><p>{selectedMatch.home_offsides || '-'}</p></div></td>
               <td><div className='offsides'><p>OFFSIDES</p></div></td>
-              <td><div className='offsides'><p>16</p></div></td>
+              <td><div className='offsides'><p>{selectedMatch.away_offsides || '-'}</p></div></td>
             </tr>
 
             <tr>
-              <td><div className='corners'><p>16</p></div></td>
+              <td><div className='corners'><p>-</p></div></td>
               <td><div className='corners'><p>CORNERS</p></div></td>
-              <td><div className='corners'><p>16</p></div></td>
+              <td><div className='corners'><p>-</p></div></td>
             </tr>
           </table>
         </div>

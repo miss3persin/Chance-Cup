@@ -423,3 +423,36 @@ nav {
 }
 
 
+/* 2xl */
+@media (max-width: 1536px) {}
+
+/* xl */
+@media (max-width: 1440px) {}
+
+/* lg */
+@media (max-width: 1024px) {
+    .navbar-main__container {
+        width: 85%;
+        position: fixed;
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    nav {
+        padding: 0px 0px 10px 0px;
+    }
+
+    .navbar-main__container {
+        width: 90.5%;
+        position: fixed;
+    }
+}
+
+/* sm */
+@media (max-width: 640px) {}
+
+/* xs */
+@media (max-width: 475px) {}
+
+
