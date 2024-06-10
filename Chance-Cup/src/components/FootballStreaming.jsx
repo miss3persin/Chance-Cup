@@ -66,13 +66,11 @@ const FootballStreaming = () => {
     <div className="video-section">
         {isLoading && <div className="loader"></div>}
         {error ? (
-            <YouTube videoId={'tHL5STNJKag'} opts={videoOptions} onReady={onReady} />
+            <YouTube videoId={'GgKIhlyjX2w'} opts={videoOptions} onReady={onReady} />
             // <p className='error-text'>No match currently being streamed, check back later.</p>
             // <p className='error-text'>COMING SOON</p>
-          ) : ( liveStreamId ? (
-              <YouTube videoId={liveStreamId} opts={videoOptions} />
-          ) :
-                <p className='error-text'>No match currently being streamed, check back later</p>
+          ) : (
+                <p className='error-text'></p>
           )}
     </div>
   </div>
