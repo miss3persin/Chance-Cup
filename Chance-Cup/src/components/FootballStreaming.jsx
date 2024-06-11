@@ -6,7 +6,7 @@ import '../styles/FootballStreaming.css'
 const FootballStreaming = () => {
 
       const [isLoading, setIsLoading] = useState(true);
-      const [liveStreamId, setLiveStreamId] = useState('');
+      // const [liveStreamId, setLiveStreamId] = useState('');
       const [error, setError] = useState(null);
       
       const videoOptions = {
@@ -36,8 +36,8 @@ const FootballStreaming = () => {
                 );
                 const data = response.data;
                 if (data.items.length > 0) {
-                    const liveStreamId = data.items[0].id.videoId;
-                    setLiveStreamId(liveStreamId);
+                    // const liveStreamId = data.items[0].id.videoId;
+                    // setLiveStreamId(liveStreamId);
                     setIsLoading(false);
                 } else {
                     // setError('No match currently being streamed. Check again later');

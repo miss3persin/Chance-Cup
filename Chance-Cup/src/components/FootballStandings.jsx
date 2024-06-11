@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../styles/FootballStandings.css'
 import axios from 'axios';
+import TournamentBracket from './TournamentBracket';
 
 const FootballStandings = () => {
   // const [standings, setStandings] = useState([]);
@@ -69,6 +70,10 @@ const FootballStandings = () => {
             <p style={{ '--index': index }} key={index}>STANDINGS</p>
           ))}
         </div>
+
+<TournamentBracket/>
+
+
 
 
         {Object.keys(groupedStandings).map((groupNumber) => (
