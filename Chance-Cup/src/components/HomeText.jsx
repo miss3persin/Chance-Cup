@@ -11,7 +11,7 @@ const HomeText = () => {
       <h1 style={{'--index': 1}}>Chance Cup - 2024</h1>
       <h1 style={{'--index': 2}}>Chance Cup - 2024</h1>
       </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim pharetra mollis. Quisque dignissim faucibus leo. Sed a pellentesque velit.</p>
+      <p>Welcome to the official page of the Landmark University Chancellor&apos;s Cup. All information regarding every sports taking place during the Cup can be found here. Have fun!</p>
     </div>
   )
 }
